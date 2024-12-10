@@ -49,7 +49,7 @@ score_player2 = 0
 font = pygame.font.SysFont("comicsans", 50)  # Font for score display
 
 # Pause variable
-paused = False
+paused = True
 
 # Create a transparent surface for the trail effect
 trail_surface = pygame.Surface((screen_width, screen_height))
