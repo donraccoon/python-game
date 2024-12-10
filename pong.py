@@ -7,6 +7,7 @@ pygame.init()
 # Screen dimensions
 screen_width = 800  # Width of the screen
 screen_height = 600  # Height of the screen
+fps = 60
 
 # Colors (RGB format)
 white = (255, 255, 255)
@@ -85,13 +86,13 @@ def draw():
 
 # Main game loop
 def main():
-    global player1_y, player2_y, ball_x, ball_y, ball_speed_x, ball_speed_y, score_player1, score_player2, paused
+    global player1_y, player2_y, ball_x, ball_y, ball_speed_x, ball_speed_y, score_player1, score_player2, paused, fps
     
     running = True
 
     while running:
-        clock.tick(60)  # Run at 60 frames per second
-        
+        clock.tick(fps)  # Run at 60 frames per second
+        fps += 0.01 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -117,6 +118,7 @@ def main():
             if keys[pygame.K_DOWN] and player2_y < screen_height - paddle_height:
                 player2_y += paddle_speed
 
+
             # Move the ball
             ball_x += ball_speed_x
             ball_y += ball_speed_y
@@ -138,12 +140,14 @@ def main():
             ball_x = screen_width // 2
             ball_y = screen_height // 2
             ball_speed_x *= -1
+            fps == 30
 
         if ball_x + ball_radius >= screen_width:  # Player 1 scores
             score_player1 += 1
             ball_x = screen_width // 2
             ball_y = screen_height // 2
             ball_speed_x *= -1
+            fps == 30
         
         draw()
     
