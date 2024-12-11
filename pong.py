@@ -86,7 +86,7 @@ def draw():
 
 # Main game loop
 def main():
-    global player1_y, player2_y, ball_x, ball_y, ball_speed_x, ball_speed_y, score_player1, score_player2, paused, fps
+    global player1_y, player2_y, ball_x, ball_y, ball_speed_x, ball_speed_y, score_player1, score_player2, paused, fps, 
     
     running = True
 
