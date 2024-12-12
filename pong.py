@@ -118,8 +118,7 @@ def main():
             if keys[pygame.K_DOWN] and player2_y < screen_height - paddle_height:
                 player2_y += paddle_speed
 
-            while fps <= 200:
-                pygame.time.delay(50)
+            if fps <= 200:
                 fps += 0.001
                 print(fps)
 
