@@ -86,7 +86,7 @@ def draw():
 
 # Main game loop
 def main():
-    global player1_y, player2_y, ball_x, ball_y, ball_speed_x, ball_speed_y, score_player1, score_player2, paused, fps
+    global player1_y, player2_y, ball_x, ball_y, ball_speed_x, ball_speed_y, score_player1, score_player2, paused, fps, paddle_speed
     
     running = True
 
@@ -118,9 +118,12 @@ def main():
             if keys[pygame.K_DOWN] and player2_y < screen_height - paddle_height:
                 player2_y += paddle_speed
 
-            if fps <= 200:
-                fps += 0.001
-                print(fps)
+            ball_speed_x = ball_speed_x + ball_speed_x*3/1000
+            ball_speed_y = ball_speed_y + ball_speed_y*3/1000
+            paddle_speed = paddle_speed + paddle_speed*3/1010
+
+            print("ball x: ",ball_speed_x)
+            print("ball y: ",ball_speed_y)
 
 
             # Move the ball
@@ -143,15 +146,21 @@ def main():
             score_player2 += 1
             ball_x = screen_width // 2
             ball_y = screen_height // 2
+            ball_speed_x = 5
+            ball_speed_y = 5
             ball_speed_x *= -1
-            fps == 30
+            paddle_speed = 7
+        
 
         if ball_x + ball_radius >= screen_width:  # Player 1 scores
             score_player1 += 1
             ball_x = screen_width // 2
             ball_y = screen_height // 2
+            ball_speed_x = 5
+            ball_speed_y = 5
             ball_speed_x *= -1
-            fps == 30
+            paddle_speed = 7
+            
         
         draw()
     
