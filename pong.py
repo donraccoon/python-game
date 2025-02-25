@@ -117,7 +117,7 @@ def main():
             # Player 1 movement
             if keys[pygame.K_w] and player1_y > 0:
                 player1_y -= paddle_speed
-                 move_up_sound.play()
+                move_up_sound.play()
             if keys[pygame.K_s] and player1_y < screen_height - paddle_height:
                 player1_y += paddle_speed
                 move_down_sound.play()
@@ -125,7 +125,7 @@ def main():
             # Player 2 movement (manual control)
             if keys[pygame.K_UP] and player2_y > 0:
                 player2_y -= paddle_speed
-                 move_up_sound.play()
+                move_up_sound.play()
             if keys[pygame.K_DOWN] and player2_y < screen_height - paddle_height:
                 player2_y += paddle_speed
                 move_down_sound.play()
