@@ -1,6 +1,14 @@
 import pygame  # Import the Pygame library
 import sys  # Import sys to close the game properly
 
+pygame.mixer.music.load("Apoxode_-_Electric_1.mp3")
+pygame.mixer.music.play(loops=-1)
+
+# Load all sound files
+# Sound sources: Jon Fincher
+move_up_sound = pygame.mixer.Sound("Rising_putter.ogg")
+move_down_sound = pygame.mixer.Sound("Falling_putter.ogg")
+collision_sound = pygame.mixer.Sound("Collision.ogg")
 # Initialize Pygame
 pygame.init()
 
@@ -109,14 +117,18 @@ def main():
             # Player 1 movement
             if keys[pygame.K_w] and player1_y > 0:
                 player1_y -= paddle_speed
+                 move_up_sound.play()
             if keys[pygame.K_s] and player1_y < screen_height - paddle_height:
                 player1_y += paddle_speed
+                move_down_sound.play()
             
             # Player 2 movement (manual control)
             if keys[pygame.K_UP] and player2_y > 0:
                 player2_y -= paddle_speed
+                 move_up_sound.play()
             if keys[pygame.K_DOWN] and player2_y < screen_height - paddle_height:
                 player2_y += paddle_speed
+                move_down_sound.play()
 
             ball_speed_x = ball_speed_x + ball_speed_x*3/1000
             ball_speed_y = ball_speed_y + ball_speed_y*3/1000
@@ -133,13 +145,16 @@ def main():
             # Ball collision with walls
             if ball_y - ball_radius <= 0 or ball_y + ball_radius >= screen_height:
                 ball_speed_y *= -1
+                collision_sound.play()
             
             # Ball collision with paddles
             if (ball_x - ball_radius <= player1_x + paddle_width and player1_y < ball_y < player1_y + paddle_height):
                 ball_speed_x *= -1
+                collision_sound.play()
             
             if (ball_x + ball_radius >= player2_x and player2_y < ball_y < player2_y + paddle_height):
                 ball_speed_x *= -1
+                collision_sound.play()
         
         # **Scoring system works even if paused**
         if ball_x - ball_radius <= 0:  # Player 2 scores
