@@ -7,6 +7,7 @@ pygame.mixer.init()
 
 # Load background music and sound effects
 pygame.mixer.music.load("cozycoffeehouse.mp3")
+pygame.mixer.music.set_volume(0.25)
 pygame.mixer.music.play(loops=-1)
 
 move_up_sound = pygame.mixer.Sound("paddle_sound.wav")
