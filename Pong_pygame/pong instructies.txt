@@ -1,0 +1,10 @@
+Instructies Pong
+
+- Installeer python https://www.python.org/downloads/ 
+- zorg dat in de installer "add to path" is aan gevinkt
+- open cmd
+- run pip install pygame
+- download de folder Pong_pygame
+- in cmd run cd "de path van de folder"
+- in linux run python3 pong.py 
+- in windows run python pong.py
